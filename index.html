@@ -27,11 +27,11 @@
 
       <div class="nav__actions">
         <div class="lang" id="langSwitch">
-          <button type="button" class="lang__btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="nav.lang" aria-label="Language">
+          <button type="button" class="lang__btn" id="langBtn" aria-haspopup="listbox" aria-controls="langMenu" aria-expanded="false" data-i18n-aria="nav.lang" aria-label="Language">
             <span class="lang__current" id="langCurrent">English</span>
             <svg class="lang__chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5L6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-          <ul class="lang__menu" id="langMenu" role="listbox" hidden></ul>
+          <ul class="lang__menu" id="langMenu" role="listbox" tabindex="-1" hidden></ul>
         </div>
         <a href="#contact" class="btn btn--sm btn--primary" data-i18n="nav.cta">Get in Touch</a>
         <button class="nav__toggle" id="navToggle" data-i18n-aria="nav.menu" aria-label="Menu" aria-expanded="false">
@@ -45,7 +45,7 @@
     <!-- ======================= HERO ======================= -->
     <section class="hero">
       <div class="hero__visual" aria-hidden="true">
-        <img src="assets/img/wholehouse.png" alt="" />
+        <img src="assets/img/wholehouse.jpg" alt="" fetchpriority="high" />
       </div>
       <div class="hero__scrim"></div>
       <div class="container hero__inner">
@@ -80,7 +80,7 @@
         <p data-i18n="reasons.sub">Empowering the furniture industry from design to production</p>
       </div>
 
-      <div class="rslide rslide--left" style="background-image:url('assets/img/kitchen.png')">
+      <div class="rslide rslide--left" style="background-image:url('assets/img/kitchen.jpg')">
         <div class="rslide__scrim"></div>
         <div class="container">
           <div class="rslide__panel">
@@ -98,7 +98,7 @@
         </div>
       </div>
 
-      <div class="rslide rslide--right" style="background-image:url('assets/img/doorwall.png')">
+      <div class="rslide rslide--right" style="background-image:url('assets/img/doorwall.jpg')">
         <div class="rslide__scrim"></div>
         <div class="container">
           <div class="rslide__panel">
@@ -114,7 +114,7 @@
         </div>
       </div>
 
-      <div class="rslide rslide--left" style="background-image:url('assets/img/wardrobe.png')">
+      <div class="rslide rslide--left" style="background-image:url('assets/img/wardrobe.jpg')">
         <div class="rslide__scrim"></div>
         <div class="container">
           <div class="rslide__panel">
@@ -146,7 +146,7 @@
         </div>
       </div>
 
-      <div class="rslide rslide--left" style="background-image:url('assets/img/tvwall.png')">
+      <div class="rslide rslide--left" style="background-image:url('assets/img/tvwall.jpg')">
         <div class="rslide__scrim"></div>
         <div class="container">
           <div class="rslide__panel">
@@ -205,15 +205,15 @@
           <p class="shead__sub" data-i18n="opt.sub">High yield nesting, labeling, multi-machine routing — boost factory efficiency</p>
         </header>
       </div>
-      <ul class="opttabs" id="optTabs" role="tablist">
-        <li><button class="is-active" role="tab" data-opt="nesting" data-i18n="opt.tab1">Nesting · High Yield</button></li>
-        <li><button role="tab" data-opt="label" data-i18n="opt.tab2">Labels · Secondary Process</button></li>
-        <li><button role="tab" data-opt="device" data-i18n="opt.tab3">Multi-Machine Routing</button></li>
+      <ul class="opttabs" id="optTabs" role="tablist" aria-label="Production features">
+        <li role="presentation"><button class="is-active" role="tab" id="tab-nesting" data-opt="nesting" aria-selected="true" aria-controls="pane-nesting" tabindex="0" data-i18n="opt.tab1">Nesting · High Yield</button></li>
+        <li role="presentation"><button role="tab" id="tab-label" data-opt="label" aria-selected="false" aria-controls="pane-label" tabindex="-1" data-i18n="opt.tab2">Labels · Secondary Process</button></li>
+        <li role="presentation"><button role="tab" id="tab-device" data-opt="device" aria-selected="false" aria-controls="pane-device" tabindex="-1" data-i18n="opt.tab3">Multi-Machine Routing</button></li>
       </ul>
 
-      <article class="optpane is-active" data-optpane="nesting">
+      <article class="optpane is-active" id="pane-nesting" data-optpane="nesting" role="tabpanel" aria-labelledby="tab-nesting">
         <div class="oslide__media">
-          <img src="assets/img/soft-nesting.png" alt="" />
+          <img src="assets/img/soft-nesting.png" alt="" loading="lazy" />
           <div class="oslide__copy">
             <h2 data-i18n="opt.n1">High yield nesting, nested layouts, and manual nesting</h2>
           </div>
@@ -227,9 +227,9 @@
         </div>
       </article>
 
-      <article class="optpane" data-optpane="label">
+      <article class="optpane" id="pane-label" data-optpane="label" role="tabpanel" aria-labelledby="tab-label" hidden>
         <div class="oslide__media">
-          <img src="assets/img/soft-label.png" alt="" />
+          <img src="assets/img/soft-label.png" alt="" loading="lazy" />
           <div class="oslide__copy">
             <h2 data-i18n="opt.l1">Labeling & Secondary Process Data</h2>
           </div>
@@ -243,9 +243,9 @@
         </div>
       </article>
 
-      <article class="optpane" data-optpane="device">
+      <article class="optpane" id="pane-device" data-optpane="device" role="tabpanel" aria-labelledby="tab-device" hidden>
         <div class="oslide__media">
-          <img src="assets/img/soft-device.png" alt="" />
+          <img src="assets/img/soft-device.png" alt="" loading="lazy" />
           <div class="oslide__copy">
             <h2 data-i18n="opt.d1">Panel Saw, CNC Router & Boring Machines</h2>
           </div>
@@ -411,7 +411,13 @@
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
-        <img src="assets/img/logo_EN.svg" alt="ArchiWood Nest" class="footer__logo" />
+        <div class="footer__brand-top">
+          <img src="assets/img/logo_EN.svg" alt="ArchiWood Nest" class="footer__logo" />
+          <a class="footer__yt" href="https://www.youtube.com/@FengPan-n1u" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8zM9.75 15.5v-7l6.2 3.5-6.2 3.5z"/></svg>
+            <span>YouTube</span>
+          </a>
+        </div>
         <p data-i18n="footer.tagline">A SketchUp-based furniture design system — design drives production.</p>
       </div>
       <nav class="footer__nav" aria-label="Footer">
@@ -425,10 +431,19 @@
     </div>
     <div class="container footer__bottom">
       <span data-i18n="footer.copy">© ArchiNest Software Tech Limited. All rights reserved.</span>
-      <span>china.archiwood.cn</span>
+      <div class="footer__links">
+        <a href="https://www.archiwood.hk/" target="_blank" rel="noopener noreferrer">www.archiwood.hk</a>
+      </div>
     </div>
   </footer>
 
+  <script src="locales/en.js"></script>
+  <script src="locales/zh.js"></script>
+  <script src="locales/zh-TW.js"></script>
+  <script src="locales/ja.js"></script>
+  <script src="locales/ko.js"></script>
+  <script src="locales/es.js"></script>
+  <script src="locales/fr.js"></script>
   <script src="i18n.js"></script>
   <script src="script.js"></script>
 </body>
