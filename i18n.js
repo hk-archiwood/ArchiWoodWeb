@@ -3,9 +3,9 @@
   'use strict';
 
   var LANGS = [
+    { code: 'en', label: 'English', htmlLang: 'en' },
     { code: 'zh', label: '简体中文', htmlLang: 'zh-CN' },
     { code: 'zh-TW', label: '繁體中文', htmlLang: 'zh-TW' },
-    { code: 'en', label: 'English', htmlLang: 'en' },
     { code: 'ja', label: '日本語', htmlLang: 'ja' },
     { code: 'ko', label: '한국어', htmlLang: 'ko' },
     { code: 'es', label: 'Español', htmlLang: 'es' },
@@ -911,9 +911,9 @@
   };
 
   function get(lang, key) {
-    var pack = T[lang] || T.zh;
+    var pack = T[lang] || T.en;
     if (pack[key] != null) return pack[key];
-    if (T.zh[key] != null) return T.zh[key];
+    if (T.en[key] != null) return T.en[key];
     return key;
   }
 
